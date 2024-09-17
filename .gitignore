@@ -1,0 +1,58 @@
+# Node modules
+/node_modules
+
+# Angular build output
+/dist
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Environment variables
+.env
+*.env
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Docker
+**/Dockerfile
+**/docker-compose.yml
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.db
+*.sql
+*.iml
+/.mvn/
+target/
+logs/
+*.log
+
+# Spring Boot
+spring.log
+
+# IntelliJ IDEA
+*.iml
+.idea/
+
+# Eclipse
+.project
+.classpath
+.settings/

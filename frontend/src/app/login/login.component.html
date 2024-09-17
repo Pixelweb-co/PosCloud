@@ -1,0 +1,18 @@
+<div class="max-w-lg mx-auto">
+    <h2 class="text-2xl font-bold mb-4">Iniciar Sesión</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Nombre de usuario</label>
+        <input formControlName="username" type="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        <div *ngIf="loginForm.get('username')?.errors?.['username']" class="text-red-500 text-xs italic">Username no válido</div>
+      </div>
+  
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Contraseña</label>
+        <input formControlName="password" type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      </div>
+  
+      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-full">Iniciar Sesión</button>
+    </form>
+  </div>
+  

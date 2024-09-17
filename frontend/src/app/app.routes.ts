@@ -1,0 +1,23 @@
+import { Routes } from '@angular/router';
+import { PrincipalComponent } from './principal/principal.component';
+import { ProductoComponent } from './producto/producto.component';
+import { PedidoComponent } from './pedido/pedido.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { FormPedidoComponent } from './form-pedido/form-pedido.component';
+import { CategoriaComponent } from './categoria/categoria.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { AuthGuard } from './guards/auth.guard'; 
+
+export const routes: Routes = [
+    { path: 'principal', component: PrincipalComponent, children: [
+        { path: 'categorias', component: CategoriaComponent },
+        { path: 'productos', component: ProductoComponent },
+        { path: 'pedidos', component: PedidoComponent },
+        { path: 'pos', component: FormPedidoComponent },
+        { path: 'usuarios', component: UsuarioComponent },
+    ] },
+    { path: 'login', component: LoginComponent },
+    { path: 'registro', component: RegisterComponent },
+    { path: '**', redirectTo: 'login' }
+];
