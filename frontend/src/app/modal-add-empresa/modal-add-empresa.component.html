@@ -1,0 +1,101 @@
+<div *ngIf="isVisible" class="fixed inset-0 flex items-center justify-center z-50 bg-gray-800 bg-opacity-50">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl">
+    <h2 class="text-xl font-bold mb-4">Agregar Empresa</h2>
+    <form [formGroup]="empresaForm" class="w-full">
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <!-- Razon Social --> 
+        <div class="w-full px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="razon_social">
+            Razón Social
+          </label>
+          <input formControlName="razon_social" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Nombre de la empresa">
+          <div *ngIf="empresaForm.get('razon_social')?.errors?.['required']" class="text-red-500 text-xs italic">Razón social es obligatorio</div>
+        </div>
+
+        <!-- NIT -->
+        <div class="w-full px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nit">
+            NIT
+          </label>
+          <input formControlName="nit" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Número de identificación tributaria">
+          <div *ngIf="empresaForm.get('nit')?.errors?.['required']" class="text-red-500 text-xs italic">NIT es obligatorio</div>
+        </div>
+
+        <!-- Domicilio -->
+        <div class="w-full px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="domicilio">
+            Domicilio
+          </label>
+          <input formControlName="domicilio" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Dirección de la empresa">
+          <div *ngIf="empresaForm.get('domicilio')?.errors?.['required']" class="text-red-500 text-xs italic">Domicilio es obligatorio</div>
+        </div>
+
+        <!-- Ciudad -->
+        <div class="w-full px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="ciudad">
+            Ciudad
+          </label>
+          <input formControlName="ciudad" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Ciudad">
+          <div *ngIf="empresaForm.get('ciudad')?.errors?.['required']" class="text-red-500 text-xs italic">Ciudad es obligatorio</div>
+        </div>
+
+                      <!-- Telefono -->
+                      <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="tipo_requisito">
+                          Telefono
+                        </label>
+                        <input formControlName="telefono" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Tipo de regimen">
+                        <div *ngIf="empresaForm.get('telefono')?.errors?.['required']" class="text-red-500 text-xs italic">Telefono es obligatorio</div>
+                      </div>
+
+        <!-- Correo -->
+        <div class="w-full px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="correo">
+            Email
+          </label>
+          <input formControlName="email" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="email" placeholder="Correo electrónico">
+          <div *ngIf="empresaForm.get('email')?.errors?.['required']" class="text-red-500 text-xs italic">Correo es obligatorio</div>
+        </div>
+
+        <!-- Código de Actividad -->
+        <div class="w-full px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="codigo_actividad">
+            Código Actividad
+          </label>
+          <input formControlName="codigo_actividad" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Código de actividad">
+          <div *ngIf="empresaForm.get('codigo_actividad')?.errors?.['required']" class="text-red-500 text-xs italic">Código actividad es obligatorio</div>
+        </div>
+
+        <!-- Tipo de Regimen -->
+        <div class="w-full px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="tipo_requisito">
+            Tipo de Regimen
+          </label>
+          <input formControlName="tipo_regimen" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Tipo de regimen">
+          <div *ngIf="empresaForm.get('tipo_regimen')?.errors?.['required']" class="text-red-500 text-xs italic">Tipo de regimen es obligatorio</div>
+        </div>
+      
+              <!-- Tipo de Estado -->
+              <div class="w-full px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="tipo_requisito">
+                  Tipo de Estado
+                </label>
+                <input formControlName="estado" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Tipo de regimen">
+                <div *ngIf="empresaForm.get('estado')?.errors?.['required']" class="text-red-500 text-xs italic">Estado es obligatorio</div>
+              </div>
+      
+      </div>
+
+      
+
+      <div class="flex justify-end mt-4">
+        <button type="button" (click)="closeModal()" class="bg-red-500 text-white rounded-full px-4 py-2 hover:bg-red-600 transition-colors mr-4">
+          Cancelar
+        </button>
+        <button type="button" (click)="saveEmpresa()" class="bg-green-500 text-white rounded-full px-4 py-2 hover:bg-green-600 transition-colors">
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

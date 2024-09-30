@@ -8,6 +8,7 @@ import { FormPedidoComponent } from './form-pedido/form-pedido.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { AuthGuard } from './guards/auth.guard'; 
+import { EmpresaComponent } from './empresa/empresa.component';
 
 export const routes: Routes = [
     { path: 'principal', component: PrincipalComponent, children: [
@@ -16,6 +17,7 @@ export const routes: Routes = [
         { path: 'pedidos', component: PedidoComponent },
         { path: 'pos', component: FormPedidoComponent },
         { path: 'usuarios', component: UsuarioComponent },
+        { path: 'empresas', component: EmpresaComponent },
     ] },
     { path: 'login', component: LoginComponent },
     { path: 'registro', component: RegisterComponent },

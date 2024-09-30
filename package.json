@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "angular-datatables": "^18.0.0"
+  }
+}

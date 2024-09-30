@@ -9,4 +9,8 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class PrincipalComponent {
 
+  toggleDropdown(event: any) {
+    const desplegable = event.target.nextElementSibling;
+    desplegable.classList.toggle('hidden');
+  }
 }
