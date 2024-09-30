@@ -9,6 +9,8 @@ import { CategoriaComponent } from './categoria/categoria.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { AuthGuard } from './guards/auth.guard'; 
 import { EmpresaComponent } from './empresa/empresa.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { EmpleadoComponent } from './empleado/empleado.component';
 
 export const routes: Routes = [
     { path: 'principal', component: PrincipalComponent, children: [
@@ -18,6 +20,8 @@ export const routes: Routes = [
         { path: 'pos', component: FormPedidoComponent },
         { path: 'usuarios', component: UsuarioComponent },
         { path: 'empresas', component: EmpresaComponent },
+        { path: 'terceros', component: ClienteComponent },
+        {path:'empleados',component:EmpleadoComponent}
     ] },
     { path: 'login', component: LoginComponent },
     { path: 'registro', component: RegisterComponent },
