@@ -17,10 +17,11 @@ export class ModalAddClienteComponent implements OnChanges {
   @Output() close = new EventEmitter<void>();
   @Output() clienteAdded = new EventEmitter<void>();
   @Input() clienteToEdit?: Cliente;
-
+  
+  activeTab = 0; // Inicializa con la primera pestaña activa
   private readonly clienteSrv = inject(ClienteService);
   private readonly fb = inject(FormBuilder); // Inyecta FormBuilder para formularios reactivos
-
+ 
   
   clienteForm: FormGroup;
 
@@ -33,6 +34,10 @@ export class ModalAddClienteComponent implements OnChanges {
       status: ['', Validators.required], // status del cliente
 
       });
+  }
+
+  showTab(index: number) {
+    this.activeTab = index;
   }
 
   // Método para cerrar el modal

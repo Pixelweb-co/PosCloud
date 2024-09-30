@@ -1,64 +1,114 @@
 <div *ngIf="isVisible" class="fixed inset-0 flex items-center justify-center z-50 bg-gray-800 bg-opacity-50">
-  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl">
-    <h2 class="text-xl font-bold mb-4">Agregar Usuario</h2>
-    <form [formGroup]="usuarioForm" class="w-full">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-[85vw]">
+    <h2 class="text-xl font-bold mb-4">Datos del cliente</h2>
+    <form [formGroup]="clienteForm" class="w-full">
 
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="username">
-            Nombre de usuario
-          </label>
-          <input formControlName="username" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="username del producto">
-          <div *ngIf="this.usuarioForm.get('username')?.errors?.['required']" class="text-red-500 text-xs italic">Nombre es obligatorio</div>
+
+
+
+      
+      <div class="max-w-6xl mx-auto">
+        <!-- Tab Navigation -->
+        <ul class="flex border-b">
+          <li class="-mb-px mr-1">
+            <button class="bg-white inline-block py-2 px-4 text-blue-500 font-semibold border-b-2 border-blue-500"
+                    (click)="showTab(0)">Información básica</button>
+          </li>
+          <li class="mr-1">
+            <button class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800"
+                    (click)="showTab(1)">Facturas</button>
+          </li>
+          <li class="mr-1">
+            <button class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800"
+                    (click)="showTab(2)">Creditos</button>
+          </li>
+          <li class="mr-1">
+            <button class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800"
+                    (click)="showTab(3)">Servicios</button>
+          </li>
+          <li>
+            <button class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800"
+                    (click)="showTab(4)">Operaciones</button>
+          </li>
+        </ul>
+  
+        <!-- Tab Content -->
+        <div class="p-4">
+          <!-- Pestaña 1 Content: Grid -->
+          <div *ngIf="activeTab === 0">
+            <div class="grid grid-cols-3 gap-4">
+              <div class="bg-gray-100 p-4 rounded-lg">
+      
+      
+             
+      
+            
+      
+            <div class="flex flex-wrap -mx-3 mb-6">
+              <div class="w-full px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="telefono">
+                  Telefono
+                </label>
+                <input formControlName="telefono" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="telefono del producto">
+                <div *ngIf="this.clienteForm.get('telefono')?.errors?.['required']" class="text-red-500 text-xs italic">Password es obligatorio</div>
+              </div>
+            </div> 
+      
+            <div class="flex flex-wrap -mx-3 mb-6">
+              <div class="w-full px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="telefono">
+                  Telefono
+                </label>
+                <input formControlName="telefono" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="telefono del producto">
+                <div *ngIf="this.clienteForm.get('telefono')?.errors?.['required']" class="text-red-500 text-xs italic">Password es obligatorio</div>
+              </div>
+            </div> 
+      
+            <div class="flex flex-wrap -mx-3 mb-6">
+              <div class="w-full px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="telefono">
+                  Telefono
+                </label>
+                <input formControlName="telefono" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="telefono del producto">
+                <div *ngIf="this.clienteForm.get('telefono')?.errors?.['required']" class="text-red-500 text-xs italic">Password es obligatorio</div>
+              </div>
+            </div> 
+      
+      
+      
+        
+      
+      
+              </div>
+              <div class="bg-gray-200 p-4 rounded-lg">Columna 2</div>
+              <div class="bg-gray-300 p-4 rounded-lg">Columna 3</div>
+            </div>
+          </div>
+  
+          <!-- Pestaña 2 Content -->
+          <div *ngIf="activeTab === 1">
+            <p>Contenido de la pestaña 2</p>
+          </div>
+  
+          <!-- Pestaña 3 Content -->
+          <div *ngIf="activeTab === 2">
+            <p>Contenido de la pestaña 3</p>
+          </div>
+  
+          <!-- Pestaña 4 Content -->
+          <div *ngIf="activeTab === 3">
+            <p>Contenido de la pestaña 4</p>
+          </div>
+  
+          <!-- Pestaña 5 Content -->
+          <div *ngIf="activeTab === 4">
+            <p>Contenido de la pestaña 5</p>
+          </div>
         </div>
       </div>
 
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="password">
-            Contraseña
-          </label>
-          <input formControlName="password" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="password del producto">
-          <div *ngIf="this.usuarioForm.get('password')?.errors?.['required']" class="text-red-500 text-xs italic">Password es obligatorio</div>
-        </div>
-      </div>
 
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="status">
-            Estado
-          </label>
-         
-          <select formControlName="status" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white">
-            <option value="0">Inactivo</option>
-            <option value="1">Activo</option>
-           
-          </select>
-          </div>
-      </div>
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="rol">
-            Rol
-          </label>
-          
-          <select formControlName="role" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" >
-            <option value="1">Cajero</option>
-            <option value="2">administrador</option>
-            <option value="3">supervisor</option>
-          </select>
-       
-          </div>
-      </div>
 
-      <div class="flex justify-end mt-4">
-        <button type="button" (click)="closeModal()" class="bg-red-500 text-white rounded-full px-4 py-2 hover:bg-red-600 transition-colors mr-4">
-          Cancelar
-        </button>
-        <button type="button" (click)="saveUsuario()" class="bg-green-500 text-white rounded-full px-4 py-2 hover:bg-green-600 transition-colors">
-          Guardar
-        </button>
-      </div>
     </form>
   </div>
 </div>
