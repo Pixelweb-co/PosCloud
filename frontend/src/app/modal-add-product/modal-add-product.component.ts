@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductoService } from '../services/producto.service'; // Servicio para productos
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; // Formulario reactivo
 import { CategoriaService } from '../services/categoria.service';
-import { Producto } from '../models/producto.model';
+import { Producto } from '../models/productox.model';
 
 @Component({
   selector: 'app-modal-add-product',

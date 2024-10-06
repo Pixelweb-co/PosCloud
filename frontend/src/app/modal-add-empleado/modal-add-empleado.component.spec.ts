@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+'./modal-add-Empleado.component'
+import {ModalAddEmpleado} from './modal-add-empleado.component';
 
-import {ModalAddClienteComponent} from './modal-add-cliente.component';
-
-describe('ModalAddUsuario', () => {
-  let component: ModalAddClienteComponent;
-  let fixture: ComponentFixture<ModalAddClienteComponent>;
+describe('ModalAddEmpleado', () => {
+  let component: ModalAddEmpleado;
+  let fixture: ComponentFixture<ModalAddEmpleado>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ModalAddClienteComponent]
+      imports: [ModalAddEmpleado]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ModalAddClienteComponent);
+    fixture = TestBed.createComponent(ModalAddEmpleado);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
