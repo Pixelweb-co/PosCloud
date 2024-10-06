@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';  
 import { CommonModule } from '@angular/common';
-import { ProductoService } from '../services/producto.service'; // Ajusta la ruta según tu estructura de proyecto
+import { {SERVICIO}Service } from '../services/{servicio}.service'; // Ajusta la ruta según tu estructura de proyecto
 import { CartService } from '../services/cart.service';  // Ajusta la ruta según tu estructura de proyecto
 import { ModalAddProductComponent } from '../modal-add-product/modal-add-product.component';
-import { Producto } from '../models/productox.model';
+import { {SERVICIO} } from '../models/{servicio}.model';
 
 @Component({
-  selector: 'app-producto',
+  selector: 'app-{servicio}',
   standalone: true,
   imports: [CommonModule, FormsModule, ModalAddProductComponent],
-  templateUrl: './producto.component.html',
-  styleUrls: ['./producto.component.css']
+  templateUrl: './{servicio}.component.html',
+  styleUrls: ['./{servicio}.component.css']
 })
-export class ProductoComponent implements OnInit {
-  products: any[] = [];
+export class {SERVICIO}Component implements OnInit {
+  products: {SERVICIO}[] = [];
   keyword: string = '';
   showModal = false;
-  productToEdit?: Producto; 
+  productToEdit?: {SERVICIO}; 
 
   constructor(
-    private productoService: ProductoService, // Inyecta el servicio
+    private {servicio}Service: {SERVICIO}Service, // Inyecta el servicio
     private cartService: CartService
   ) {}
 
@@ -30,8 +30,7 @@ export class ProductoComponent implements OnInit {
 
   // Método para cargar productos desde la API
   async loadInitialProducts() {
-    
-    await this.productoService.getProductos().subscribe(
+    await this.{servicio}Service.get{SERVICIO}s().subscribe(
       (data) => {
         this.products = data; // Asigna los productos obtenidos a la propiedad
       },
@@ -50,7 +49,7 @@ export class ProductoComponent implements OnInit {
     );
   }
 
-  addToCart(product: any) {
+  addToCart(product: {SERVICIO}) {
     this.cartService.addToCart(product);
   }
 
@@ -74,15 +73,14 @@ export class ProductoComponent implements OnInit {
     this.loadInitialProducts(); // Recarga los productos cuando se agrega uno nuevo
   }
 
-  editProduct(product: Producto) {
+  editProduct(product: {SERVICIO}) {
     this.productToEdit = product;
     this.showModal = true;
   }
 
-
   deleteProduct(productId: number) {
     if (confirm('Are you sure you want to delete this product?')) {
-      this.productoService.eliminarProducto(productId).subscribe(
+      this.{servicio}Service.eliminar{SERVICIO}(productId).subscribe(
         () => {
           this.loadInitialProducts();
         },
