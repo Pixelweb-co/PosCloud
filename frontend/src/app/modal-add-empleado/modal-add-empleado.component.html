@@ -1,202 +1,176 @@
 <div *ngIf="isVisible" class="fixed inset-0 flex items-center justify-center z-50 bg-gray-800 bg-opacity-50"></div>
-  <div class="bg-white rounded-lg shadow-lg p-6 w-[85vw]">
-    <h2 class="text-xl font-bold mb-2">Datos del Empleado</h2>
-    <form [formGroup]="empleadoForm" class="w-full">
+<div class="bg-white rounded-lg shadow-lg p-6 w-[85vw]">
+  <h2 class="text-xl font-bold mb-2">Datos del Empleado</h2>
+  <form [formGroup]="empleadoForm" class="w-full">
+    <div class="max-w-6xl mx-auto">
+      <!-- Tab Navigation -->
+      <ul class="flex border-b">
+        <li class="-mb-px mr-1">
+          <button class="bg-white inline-block py-2 px-4 text-blue-500 font-semibold border-b-2 border-blue-500"
+            (click)="showTab(0)">Información básica</button>
+        </li>
+        <li class="mr-1">
+          <button class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800"
+            (click)="showTab(1)">Contrato</button>
+        </li>
+        <li class="mr-1">
+          <button class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800"
+            (click)="showTab(2)">Recibos de nómina</button>
+        </li>
+        <li class="mr-1">
+          <button class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800"
+            (click)="showTab(3)">Incapacidades</button>
+        </li>
+        <li>
+          <button class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800"
+            (click)="showTab(4)">Reporte de horas</button>
+        </li>
+      </ul>
 
-      <div class="max-w-6xl mx-auto">
-        <!-- Tab Navigation -->
-        <ul class="flex border-b">
-          <li class="-mb-px mr-1">
-            <button class="bg-white inline-block py-2 px-4 text-blue-500 font-semibold border-b-2 border-blue-500"
-              (click)="showTab(0)">Información básica</button>
-          </li>
-          <li class="mr-1">
-            <button class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800"
-              (click)="showTab(1)">Contrato</button>
-          </li>
-          <li class="mr-1">
-            <button class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800"
-              (click)="showTab(2)">Recibos de nómina</button>
-          </li>
-          <li class="mr-1">
-            <button class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800"
-              (click)="showTab(3)">Incapacidades</button>
-          </li>
-          <li>
-            <button class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800"
-              (click)="showTab(4)">Reporte de horas</button>
-          </li>
-        </ul>
-
-        <!-- Tab Content -->
-        <div class="p-2">
-          <!-- Pestaña 1 Content: Grid -->
-          <div *ngIf="activeTab === 0">
-            <div class="grid grid-cols-3 gap-4">
-              <!-- Columna 1 -->
-              <div class="bg-gray-100 p-4 rounded-lg">
-                <div class="mb-2">
-                  <label class="block text-gray-700">Nombres</label>
-                  <input formControlName="nombres" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">apellidos</label>
-                  <input formControlName="apellidos" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">Teléfono</label>
-                  <input formControlName="telefono" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">Email</label>
-                  <input formControlName="email" type="email" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-                <div class="mb-2">
-                  <label class="block text-gray-700">Dirección</label>
-                  <input formControlName="direccion" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">Ciudad</label>
-                  <input formControlName="ciudad" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">Fecha de nacimiento</label>
-                  <input formControlName="fechaNacimiento" type="date" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-
-
+      <!-- Tab Content -->
+      <div class="p-2">
+        <!-- Pestaña 1 Content: Grid -->
+        <div *ngIf="activeTab === 0">
+          <div class="grid grid-cols-3 gap-4">
+            <!-- Columna 1 -->
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <div class="mb-2">
+                <label for="nombres" class="block text-gray-700">Nombres</label>
+                <input id="nombres" formControlName="nombres" class="w-full bg-gray-200 p-1 rounded" aria-label="Nombres">
               </div>
 
-              <!-- Columna 2 -->
-              <div class="bg-gray-100 p-4 rounded-lg">
-
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">Tipo de identificación</label>
-                  <input formControlName="cargo" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">Número de identificación</label>
-                  <input formControlName="cargo" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-
-              
+              <div class="mb-2">
+                <label for="apellidos" class="block text-gray-700">Apellidos</label>
+                <input id="apellidos" formControlName="apellidos" class="w-full bg-gray-200 p-1 rounded" aria-label="Apellidos">
               </div>
 
-              <!-- Columna 3 -->
-              <div class="bg-gray-100 p-4 rounded-lg">
+              <div class="mb-2">
+                <label for="telefono" class="block text-gray-700">Teléfono</label>
+                <input id="telefono" formControlName="telefono" class="w-full bg-gray-200 p-1 rounded" aria-label="Teléfono">
+              </div>
 
-                <div class="picture h-[10vw] w-50 justify-center">
+              <div class="mb-2">
+                <label for="email" class="block text-gray-700">Email</label>
+                <input id="email" formControlName="email" type="email" class="w-full bg-gray-200 p-1 rounded" aria-label="Email">
+              </div>
 
-                  <img src="https://placehold.jp/150x150.png" alt="">
+              <div class="mb-2">
+                <label for="direccion" class="block text-gray-700">Dirección</label>
+                <input id="direccion" formControlName="direccion" class="w-full bg-gray-200 p-1 rounded" aria-label="Dirección">
+              </div>
 
-                </div>
+              <div class="mb-2">
+                <label for="ciudad" class="block text-gray-700">Ciudad</label>
+                <input id="ciudad" formControlName="ciudad" class="w-full bg-gray-200 p-1 rounded" aria-label="Ciudad">
+              </div>
 
+              <div class="mb-2">
+                <label for="fechaNacimiento" class="block text-gray-700">Fecha de nacimiento</label>
+                <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date" class="w-full bg-gray-200 p-1 rounded"
+                  aria-label="Fecha de nacimiento">
               </div>
             </div>
-          </div>
 
-          <!-- Otras pestañas -->
-          <div *ngIf="activeTab === 1">
-            <div class="grid grid-cols-3 gap-4">
-              <!-- Columna 1 -->
-              <div class="bg-gray-100 p-4 rounded-lg">
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">Tipo de contrato</label>
-                  <input formControlName="cargo" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">Fecha de contratación</label>
-                  <input formControlName="fechaContratacion" type="date" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-                <div class="mb-2">
-                  <label class="block text-gray-700">Cargo</label>
-                  <input formControlName="cargo" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">Salario</label>
-                  <input formControlName="salario" type="number" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">Auxilio de trasporte</label>
-                  <input formControlName="auxilio_trasporte" type="number" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-                
-
+            <!-- Columna 2 -->
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <div class="mb-2">
+                <label for="tipoIdentificacion" class="block text-gray-700">Tipo de identificación</label>
+                <input id="tipoIdentificacion" formControlName="tipoIdentificacion" class="w-full bg-gray-200 p-1 rounded" aria-label="Tipo de identificación">
               </div>
 
-              <!-- Columna 2 -->
-              <div class="bg-gray-100 p-4 rounded-lg">
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">EPS</label>
-                  <input formControlName="eps" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">ARL</label>
-                  <input formControlName="arl" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">Caja de Compensación</label>
-                  <input formControlName="cajaCompensacion" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-                <div class="mb-2">
-                  <label class="block text-gray-700">Fondo de Pensiones</label>
-                  <input formControlName="administradoraFondoPensiones" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-                <div class="mb-2">
-                  <label class="block text-gray-700">Fondo de Cesantías</label>
-                  <input formControlName="fondoCesantias" class="w-full bg-gray-200 p-1 rounded">
-                </div>
-
-              </div>
-
-              <!-- Columna 3 -->
-              <div class="bg-gray-100 p-4 rounded-lg">
-
-
+              <div class="mb-2">
+                <label for="numeroIdentificacion" class="block text-gray-700">Número de identificación</label>
+                <input id="numeroIdentificacion" formControlName="numeroIdentificacion" class="w-full bg-gray-200 p-1 rounded" aria-label="Número de identificación">
               </div>
             </div>
-          </div>
 
-          <div *ngIf="activeTab === 2">
-            <p>Contenido de la pestaña 3</p>
-          </div>
-
-          <div *ngIf="activeTab === 3">
-            <p>Contenido de la pestaña 4</p>
-          </div>
-
-          <div *ngIf="activeTab === 4">
-            <p>Contenido de la pestaña 5</p>
+            <!-- Columna 3 -->
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <div class="picture h-[10vw] w-50 justify-center">
+                <img src="https://placehold.jp/150x150.png" alt="Foto del empleado">
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Submit button -->
-        <div class="mt-4 flex justify-end">
-          <button type="submit" (click)="saveEmpleado()"
-            class="bg-blue-500 text-white py-2 px-4 rounded">Guardar</button>
+        <!-- Pestaña 2: Contrato -->
+        <div *ngIf="activeTab === 1">
+          <div class="grid grid-cols-3 gap-4">
+            <!-- Columna 1 -->
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <div class="mb-2">
+                <label for="tipoContrato" class="block text-gray-700">Tipo de contrato</label>
+                <input id="tipoContrato" formControlName="tipoContrato" class="w-full bg-gray-200 p-1 rounded" aria-label="Tipo de contrato">
+              </div>
+
+              <div class="mb-2">
+                <label for="fechaContratacion" class="block text-gray-700">Fecha de contratación</label>
+                <input id="fechaContratacion" formControlName="fechaContratacion" type="date" class="w-full bg-gray-200 p-1 rounded"
+                  aria-label="Fecha de contratación">
+              </div>
+
+              <div class="mb-2">
+                <label for="cargo" class="block text-gray-700">Cargo</label>
+                <input id="cargo" formControlName="cargo" class="w-full bg-gray-200 p-1 rounded" aria-label="Cargo">
+              </div>
+
+              <div class="mb-2">
+                <label for="salario" class="block text-gray-700">Salario</label>
+                <input id="salario" formControlName="salario" type="number" class="w-full bg-gray-200 p-1 rounded" aria-label="Salario">
+              </div>
+
+              <div class="mb-2">
+                <label for="auxilioTransporte" class="block text-gray-700">Auxilio de transporte</label>
+                <input id="auxilioTransporte" formControlName="auxilioTransporte" type="number" class="w-full bg-gray-200 p-1 rounded" aria-label="Auxilio de transporte">
+              </div>
+            </div>
+
+            <!-- Columna 2 -->
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <div class="mb-2">
+                <label for="eps" class="block text-gray-700">EPS</label>
+                <input id="eps" formControlName="eps" class="w-full bg-gray-200 p-1 rounded" aria-label="EPS">
+              </div>
+
+              <div class="mb-2">
+                <label for="arl" class="block text-gray-700">ARL</label>
+                <input id="arl" formControlName="arl" class="w-full bg-gray-200 p-1 rounded" aria-label="ARL">
+              </div>
+
+              <div class="mb-2">
+                <label for="cajaCompensacion" class="block text-gray-700">Caja de Compensación</label>
+                <input id="cajaCompensacion" formControlName="cajaCompensacion" class="w-full bg-gray-200 p-1 rounded" aria-label="Caja de Compensación">
+              </div>
+
+              <div class="mb-2">
+                <label for="fondoPensiones" class="block text-gray-700">Fondo de Pensiones</label>
+                <input id="fondoPensiones" formControlName="fondoPensiones" class="w-full bg-gray-200 p-1 rounded" aria-label="Fondo de Pensiones">
+              </div>
+
+              <div class="mb-2">
+                <label for="fondoCesantias" class="block text-gray-700">Fondo de Cesantías</label>
+                <input id="fondoCesantias" formControlName="fondoCesantias" class="w-full bg-gray-200 p-1 rounded" aria-label="Fondo de Cesantías">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Otras pestañas -->
+        <div *ngIf="activeTab === 2">
+          <p>Contenido de la pestaña 3</p>
+        </div>
+        <div *ngIf="activeTab === 3">
+          <p>Contenido de la pestaña 4</p>
+        </div>
+        <div *ngIf="activeTab === 4">
+          <p>Contenido de la pestaña 5</p>
         </div>
       </div>
-    </form>
-  </div>
+
+      <!-- Submit button -->
+      <div class="mt-4 flex justify-end">
+        <button type="submit" (click)="saveEmpleado()" class="bg-blue-500 text-white py-2 px-4 rounded">Guardar</button>
+      </div>
+    </div>
+  </form>
 </div>

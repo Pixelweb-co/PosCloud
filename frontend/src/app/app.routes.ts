@@ -11,6 +11,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { EmpleadoComponent } from './empleado/empleado.component';
+import { EpsComponent } from './components/eps_lista/eps.lista';
+
 
 export const routes: Routes = [
     { path: 'principal', component: PrincipalComponent, children: [
@@ -21,7 +23,8 @@ export const routes: Routes = [
         { path: 'usuarios', component: UsuarioComponent },
         { path: 'empresas', component: EmpresaComponent },
         { path: 'terceros', component: ClienteComponent },
-        {path:'empleados',component:EmpleadoComponent}
+        {path:'empleados',component:EmpleadoComponent},
+        {path:'eps',component:EpsComponent},
     ] },
     { path: 'login', component: LoginComponent },
     { path: 'registro', component: RegisterComponent },

@@ -8,13 +8,11 @@
       <i class="fas fa-user-circle text-white text-2xl"></i>
     </div>
   </nav>
-<div class="hide-print flex flex-row h-screen antialiased text-blue-gray-800">
+<div class="hide-print  h-screen antialiased text-blue-gray-800">
 
     <app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
-      
-	<!-- Component End  -->
-
-    <div class="flex-grow flex">
-        <div style="width: 100%;">    <router-outlet></router-outlet></div>
-    </div>
+    <app-body
+    [collapsed]="isSideNavCollapsed"
+    [screenWidth]="screenWidth"
+></app-body>
 </div>

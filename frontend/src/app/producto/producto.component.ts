@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProductoService } from '../services/producto.service'; // Ajusta la ruta según tu estructura de proyecto
 import { CartService } from '../services/cart.service';  // Ajusta la ruta según tu estructura de proyecto
 import { ModalAddProductComponent } from '../modal-add-product/modal-add-product.component';
-import { Producto } from '../models/productox.model';
+import { Producto } from '../models/producto.model';
 
 @Component({
   selector: 'app-producto',

@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { SidenavComponent } from '../sidenav/sidenav.component';
-
+import {BodyComponent} from '../body/body.component';
 
 interface SideNavToggle {
   screenWidth: number;
   collapsed: boolean;
 }
 
-
-
 @Component({
   selector: 'app-principal',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive,SidenavComponent],
+  imports: [SidenavComponent,BodyComponent],
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.css'
 })
@@ -33,5 +30,6 @@ export class PrincipalComponent {
     desplegable.classList.toggle('hidden');
   } 
 
+  
 
 }
